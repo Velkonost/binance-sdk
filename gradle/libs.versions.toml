@@ -1,5 +1,5 @@
 [versions]
-binance-sdk = "0.0.1"
+binance-sdk = "0.0.2"
 kotlin = "2.0.0"
 
 coroutines = "1.7.3"

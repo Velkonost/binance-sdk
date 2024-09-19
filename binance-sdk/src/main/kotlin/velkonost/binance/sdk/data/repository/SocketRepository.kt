@@ -50,10 +50,11 @@ internal class SocketRepository(
     @OptIn(ExperimentalCoroutinesApi::class)
     suspend fun listenSocketsConnections() =
         updatesFlow
-            .onEach {
-                println("Total sockets - ${it.size}")
-                println("Connected - ${it.filter { it.value.connectState.first() == ConnectState.Connected }.size}")
-                println("Disconnected - ${it.filter { it.value.connectState.first() == ConnectState.Disconnected }.size}")
+            .onEach { connections ->
+                val total = connections.size
+                val connected = connections.filter { it.value.connectState.first() == ConnectState.Connected }.size
+                val disconnected = connections.filter { it.value.connectState.first() == ConnectState.Disconnected }.size
+                println("Total sockets - $total | Connected - $connected | Disconnected - $disconnected")
             }
             .flatMapLatest { map ->
                 map.entries.asFlow()

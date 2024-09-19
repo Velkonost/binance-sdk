@@ -41,9 +41,10 @@ object BinanceSDK {
         fun startListenAllSymbolsUpdates(
             delayBetweenLaunches: Long = 1000L,
             interval: KlineInterval = KlineInterval.Minute1,
+            logConnectionsState: Boolean = true,
             collector: ((SymbolUpdate) -> Unit)? = null
         ) = safeCall {
-            it.socketListenAllSymbols(delayBetweenLaunches, interval, collector)
+            it.socketListenAllSymbols(delayBetweenLaunches, interval, logConnectionsState, collector)
         }
 
         fun startListenUpdates(symbol: String, interval: KlineInterval = KlineInterval.Minute1) =

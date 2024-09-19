@@ -23,15 +23,19 @@ internal class Client(
     internal fun socketListenAllSymbols(
         delayBetweenLaunches: Long,
         interval: KlineInterval,
+        logConnectionsState: Boolean,
         collector: ((SymbolUpdate) -> Unit)? = null
     ): List<Flow<SymbolUpdate>> {
         val result = CompletableDeferred<List<Flow<SymbolUpdate>>>()
         val sockets = mutableListOf<Flow<SymbolUpdate>>()
         val symbols = futuresExchangeSymbols()
 
-        socketListenConnections()
+        if (logConnectionsState) {
+            socketListenConnections()
+        }
+
         coroutineScope.launch {
-            symbols.take(5).forEach { symbol ->
+            symbols.forEach { symbol ->
                 delay(delayBetweenLaunches)
 
                 val newSocket = async { socketListenUpdates(symbol, interval) }.await()
