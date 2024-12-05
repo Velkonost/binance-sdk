@@ -10,8 +10,10 @@ import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import velkonost.binance.sdk.exception.BinanceSDKException
 import velkonost.binance.sdk.network.extensions.contentNegotiation
 import velkonost.binance.sdk.network.extensions.httpTimeout
+import velkonost.binance.sdk.network.extensions.requestRetry
 import velkonost.binance.sdk.network.extensions.webSockets
 
 internal const val KTOR_REQUEST_TIMEOUT_MILLIS = 30_000L
@@ -22,6 +24,19 @@ internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null
         Logging {
             logger = Logger.SIMPLE
             level = LogLevel.NONE
+        }
+
+        requestRetry {
+            maxRetries = 5
+            retryIf { request, response ->
+                !response.status.isSuccess()
+            }
+            retryOnExceptionIf { _, cause ->
+                cause is HttpRequestTimeoutException || cause is BinanceSDKException
+            }
+            delayMillis { retry ->
+                retry * 3000L
+            }
         }
 
         httpTimeout {
