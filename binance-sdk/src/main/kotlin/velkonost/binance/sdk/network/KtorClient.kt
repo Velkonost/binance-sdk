@@ -37,6 +37,9 @@ internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null
             delayMillis { retry ->
                 retry * 3000L
             }
+            modifyRequest { request ->
+                request.headers.append("x-retry-count", retryCount.toString())
+            }
         }
 
         httpTimeout {
