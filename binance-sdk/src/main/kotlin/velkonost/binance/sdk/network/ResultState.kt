@@ -34,7 +34,7 @@ internal inline fun <T : Any?> ResultState<T>.onFailure(crossinline action: (thr
 internal fun <T : Any> CompletableDeferred<T>.handleError(throwable: Throwable?, error: ErrorResponse? = null) {
     val exception = when {
         error != null -> BinanceSDKException(error.message)
-        throwable != null -> throwable
+        throwable != null -> BinanceSDKException(throwable.stackTraceToString())
         else -> BinanceSDKNotInitializedException
     }
     completeExceptionally(exception)

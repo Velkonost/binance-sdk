@@ -15,6 +15,7 @@ import velkonost.binance.sdk.network.extensions.contentNegotiation
 import velkonost.binance.sdk.network.extensions.httpTimeout
 import velkonost.binance.sdk.network.extensions.requestRetry
 import velkonost.binance.sdk.network.extensions.webSockets
+import java.net.ConnectException
 
 internal const val KTOR_REQUEST_TIMEOUT_MILLIS = 30_000L
 
@@ -32,7 +33,7 @@ internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null
                 !response.status.isSuccess()
             }
             retryOnExceptionIf { _, cause ->
-                cause is HttpRequestTimeoutException || cause is BinanceSDKException
+                cause is HttpRequestTimeoutException || cause is BinanceSDKException || cause is ConnectException
             }
             delayMillis { retry ->
                 retry * 3000L

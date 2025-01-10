@@ -8,6 +8,7 @@ import io.ktor.utils.io.errors.*
 import io.ktor.websocket.*
 import kotlinx.coroutines.flow.*
 import kotlinx.serialization.json.Json
+import java.net.ConnectException
 
 internal inline fun <reified T> HttpClient.wsSession(
     url: String,
@@ -30,7 +31,7 @@ internal inline fun <reified T> HttpClient.wsSession(
         connectState.emit(ConnectState.Connected)
         emitAll(ws.incoming.receiveAsFlow().map { frame -> requestWrapperWs(frame) })
     }.retry { cause: Throwable ->
-        if (cause is IOException || cause is HttpRequestTimeoutException) {
+        if (cause is ConnectException || cause is IOException || cause is HttpRequestTimeoutException) {
             connectState.emit(ConnectState.Disconnected)
         }
         true
