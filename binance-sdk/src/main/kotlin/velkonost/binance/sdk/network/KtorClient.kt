@@ -8,6 +8,7 @@ import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.utils.io.core.*
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import velkonost.binance.sdk.exception.BinanceSDKException
@@ -33,7 +34,8 @@ internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null
                 !response.status.isSuccess()
             }
             retryOnExceptionIf { _, cause ->
-                cause is HttpRequestTimeoutException || cause is BinanceSDKException || cause is ConnectException
+                cause is HttpRequestTimeoutException || cause is BinanceSDKException
+                        || cause is ConnectException || cause is EOFException
             }
             delayMillis { retry ->
                 retry * 3000L
