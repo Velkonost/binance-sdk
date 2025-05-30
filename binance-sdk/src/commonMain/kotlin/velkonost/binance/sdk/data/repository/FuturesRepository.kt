@@ -15,11 +15,24 @@ import velkonost.binance.sdk.network.onFailure
 import velkonost.binance.sdk.network.onSuccess
 import kotlin.math.max
 
+/**
+ * Repository class for handling Binance Futures API operations.
+ * This class provides methods for interacting with the Binance Futures API endpoints,
+ * including balance queries, position management, and market data retrieval.
+ *
+ * @property dataSource The data source for making API requests to Binance Futures endpoints
+ */
 internal class FuturesRepository(
     apiKey: String, apiSecret: String,
     override val dataSource: FuturesDataSource = FuturesDataSource(apiKey, apiSecret)
 ) : Repository() {
 
+    /**
+     * Pings the Binance Futures API to check connectivity.
+     * This is a simple health-check method that can be used to verify API access.
+     *
+     * @return true if the ping was successful, false otherwise
+     */
     suspend fun ping(): Boolean {
         val result = CompletableDeferred<Boolean>()
         coroutineScope.launchCatching(catch = { result.complete(false) }) {
@@ -27,10 +40,16 @@ internal class FuturesRepository(
                 .onSuccess { result.complete(true) }
                 .onFailure { _, _ -> result.complete(false) }
         }
-
         return result.await()
     }
 
+    /**
+     * Retrieves the balance for a specific asset in the futures account.
+     *
+     * @param asset The asset for which the balance is requested (e.g., "USDT")
+     * @return A [BalanceResponse] object containing the balance information
+     * @throws BinanceSDKException if the balance for the specified asset is not found
+     */
     suspend fun getBalance(asset: String): BalanceResponse {
         val result = CompletableDeferred<BalanceResponse>()
         coroutineScope.launchCatching(catch = result::handleError) {
@@ -44,6 +63,12 @@ internal class FuturesRepository(
         return result.await()
     }
 
+    /**
+     * Retrieves all open positions in the futures account.
+     * Only positions with non-zero notional value are included.
+     *
+     * @return A list of [SymbolPositionResponse] objects containing position details
+     */
     suspend fun getOpenPositions(): List<SymbolPositionResponse> {
         val result = CompletableDeferred<List<SymbolPositionResponse>>()
         coroutineScope.launchCatching(catch = result::handleError) {
@@ -56,6 +81,12 @@ internal class FuturesRepository(
         return result.await()
     }
 
+    /**
+     * Retrieves all available trading symbols for futures trading.
+     * Only active trading symbols are returned (status = "TRADING").
+     *
+     * @return A list of [ExchangeSymbolData] objects containing symbol information
+     */
     suspend fun getExchangeSymbols(): List<ExchangeSymbolData> {
         val result = CompletableDeferred<List<ExchangeSymbolData>>()
         coroutineScope.launchCatching(catch = result::handleError) {
@@ -69,6 +100,16 @@ internal class FuturesRepository(
         return result.await()
     }
 
+    /**
+     * Retrieves historical kline (candlestick) data for a specific symbol.
+     *
+     * @param symbol The trading symbol (e.g., "BTCUSDT")
+     * @param interval The candlestick interval (e.g., [KlineInterval.Minute1])
+     * @param start The start time for historical data
+     * @param end Optional end time for historical data
+     * @param limit The maximum number of candlesticks to retrieve (default: 1000)
+     * @return A list of [KlineResponse] objects containing the candlestick data
+     */
     suspend fun getHistoricalKlines(
         symbol: String,
         interval: KlineInterval,
@@ -147,6 +188,12 @@ internal class FuturesRepository(
         return result.await()
     }
 
+    /**
+     * Retrieves a listen key for maintaining a user data stream.
+     * This key is required for WebSocket connections that receive user-specific updates.
+     *
+     * @return A listen key string that can be used to establish a user data stream
+     */
     suspend fun getListenKey(): String {
         val result = CompletableDeferred<String>()
         coroutineScope.launchCatching(catch = result::handleError) {
