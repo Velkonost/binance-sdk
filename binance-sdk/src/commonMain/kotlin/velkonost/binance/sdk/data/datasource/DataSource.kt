@@ -91,15 +91,19 @@ internal abstract class DataSource(
      * @return A hexadecimal string representing the signature
      */
     @OptIn(ExperimentalStdlibApi::class)
-    private fun generateSignature(parameters: List<Pair<String, String>>): String {
-        val queryString = parameters
-            .sortedBy { it.first }
-            .joinToString("&") { "${it.first}=${it.second}" }
+    private suspend fun generateSignature(parameters: List<Pair<String, String>>): String {
+        val queryString = parameters.joinToString("&") { "${it.first}=${it.second}" }
+        val hmacSha256: ByteArray
+        try {
+            val key = CryptographyProvider.Default.get(HMAC).keyDecoder(SHA256).decodeFromByteArray(
+                format = HMAC.Key.Format.RAW,
+                apiSecret.toByteArray()
+            )
+            hmacSha256 = key.signatureGenerator().generateSignature(queryString.toByteArray())
+        } catch (e: Exception) {
+            throw RuntimeException("Failed to calculate hmac-sha256", e)
+        }
 
-        val hmac = CryptographyProvider.hmac(HMAC.SHA256)
-        val key = hmac.key(apiSecret.encodeToByteArray())
-        val signature = hmac.sign(key, queryString.encodeToByteArray())
-
-        return signature.toHexString()
+        return hmacSha256.toHexString()
     }
 }

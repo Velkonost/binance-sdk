@@ -25,7 +25,7 @@ typealias Symbol = String
  */
 internal class SocketRepository(
     apiKey: String, apiSecret: String,
-    private val dataSource: FuturesDataSource = FuturesDataSource(apiKey, apiSecret)
+    override val dataSource: FuturesDataSource = FuturesDataSource(apiKey, apiSecret)
 ) : Repository() {
 
     private val runningSockets: ConcurrentMutableMap<Symbol, WSSession<SocketResponse>> = ConcurrentMutableMap()

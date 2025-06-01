@@ -94,7 +94,7 @@ internal class Client(
      *
      * @param symbol The trading symbol to unsubscribe from
      */
-    internal fun socketStopListenUpdates(symbol: Symbol) = socketRepository.closeSocket(symbol)
+    internal suspend fun socketStopListenUpdates(symbol: Symbol) = socketRepository.closeSocket(symbol)
 
     // GENERAL API OPERATIONS
 
