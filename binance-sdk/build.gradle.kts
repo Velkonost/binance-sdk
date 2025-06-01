@@ -87,6 +87,15 @@ android {
     }
 }
 
+
+tasks {
+    register<Jar>("dokkaJar") {
+        from(dokkaHtml)
+        dependsOn(dokkaHtml)
+        archiveClassifier.set("javadoc")
+    }
+}
+
 group = "com.velkonost"
 version = libs.versions.binance.sdk.get()
 description = "Unofficial wrapper for binance api in Kotlin"
