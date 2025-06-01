@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>velkonost.binance.sdk.model</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../index.html">
+                    binance-sdk
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+1.0.0        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active=""
+                        data-filter=":binance-sdk:dokkaHtml/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":binance-sdk:dokkaHtml/commonMain"
+                                       data-filter=":binance-sdk:dokkaHtml/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    binance-sdk
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="binance-sdk::velkonost.binance.sdk.model////PointingToDeclaration//477008931">
+  <div class="breadcrumbs"><a href="../../index.html">binance-sdk</a><span class="delimiter">/</span><span class="current">velkonost.binance.sdk.model</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-92481496%2FClasslikes%2F477008931" anchor-label="FuturesBalance" id="-92481496%2FClasslikes%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-futures-balance/index.html"><span>Futures</span><wbr></wbr><span><span>Balance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-92481496%2FClasslikes%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-futures-balance/index.html">FuturesBalance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>all<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>crossWallet<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>available<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents the balance information for a futures trading account. This model contains the total balance, cross wallet balance, and available balance for trading.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="120001163%2FClasslikes%2F477008931" anchor-label="FuturesOpenPosition" id="120001163%2FClasslikes%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-futures-open-position/index.html"><span>Futures</span><wbr></wbr><span>Open</span><wbr></wbr><span><span>Position</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="120001163%2FClasslikes%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-futures-open-position/index.html">FuturesOpenPosition</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>symbol<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>amount<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>breakEvenPrice<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>unRealizedProfit<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>liquidationPrice<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>leverage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>marginType<span class="token operator">: </span><a href="../velkonost.binance.sdk.enums/-margin-type/index.html">MarginType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>amountUSDT<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents an open position in a futures trading account. This model contains all relevant information about an active futures position.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="538519215%2FClasslikes%2F477008931" anchor-label="Kline" id="538519215%2FClasslikes%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kline/index.html"><span><span>Kline</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="538519215%2FClasslikes%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-kline/index.html">Kline</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>open<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>high<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>low<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>close<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>volume<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents a candlestick (kline) data point in the market. This model contains the essential price and volume information for a specific time period.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1658835021%2FClasslikes%2F477008931" anchor-label="SymbolUpdate" id="-1658835021%2FClasslikes%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-symbol-update/index.html"><span>Symbol</span><wbr></wbr><span><span>Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1658835021%2FClasslikes%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-symbol-update/index.html">SymbolUpdate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>symbol<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>time<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>kline<span class="token operator">: </span><a href="-kline/index.html">Kline</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents a real-time update for a trading symbol. This model is used for WebSocket streams to deliver live market data updates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1656175466%2FFunctions%2F477008931" anchor-label="toKline" id="-1656175466%2FFunctions%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-kline.html"><span>to</span><wbr></wbr><span><span>Kline</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1656175466%2FFunctions%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../velkonost.binance.sdk.data.model.response/-kline-response/index.html">KlineResponse</a><span class="token punctuation">.</span><a href="to-kline.html"><span class="token function">toKline</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-kline/index.html">Kline</a></div><div class="brief "><p class="paragraph">Converts a <a href="../velkonost.binance.sdk.data.model.response/-kline-response/index.html">KlineResponse</a> object to a <a href="-kline/index.html">Kline</a> object. This extension function transforms the API response format into the SDK's domain model.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="../velkonost.binance.sdk.data.model.response/-socket-kline-data/index.html">SocketKlineData</a><span class="token punctuation">.</span><a href="to-kline.html"><span class="token function">toKline</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-kline/index.html">Kline</a></div><div class="brief "><p class="paragraph">Converts a <a href="../velkonost.binance.sdk.data.model.response/-socket-kline-data/index.html">SocketKlineData</a> object to a <a href="-kline/index.html">Kline</a> object. This extension function transforms WebSocket data into the SDK's domain model.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1335392107%2FFunctions%2F477008931" anchor-label="toKlines" id="1335392107%2FFunctions%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-klines.html"><span>to</span><wbr></wbr><span><span>Klines</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1335392107%2FFunctions%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../velkonost.binance.sdk.data.model.response/-kline-response/index.html">KlineResponse</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="to-klines.html"><span class="token function">toKlines</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-kline/index.html">Kline</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Converts a list of <a href="../velkonost.binance.sdk.data.model.response/-kline-response/index.html">KlineResponse</a> objects to a list of <a href="-kline/index.html">Kline</a> objects. This extension function is used to transform API responses into the SDK's domain model.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1284970658%2FFunctions%2F477008931" anchor-label="toSymbolUpdate" id="-1284970658%2FFunctions%2F477008931" data-filterable-set=":binance-sdk:dokkaHtml/commonMain"></a>
+          <div class="table-row" data-filterable-current=":binance-sdk:dokkaHtml/commonMain" data-filterable-set=":binance-sdk:dokkaHtml/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-symbol-update.html"><span>to</span><wbr></wbr><span>Symbol</span><wbr></wbr><span><span>Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1284970658%2FFunctions%2F477008931"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":binance-sdk:dokkaHtml/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../velkonost.binance.sdk.data.model.response/-socket-response/index.html">SocketResponse</a><span class="token punctuation">.</span><a href="to-symbol-update.html"><span class="token function">toSymbolUpdate</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-symbol-update/index.html">SymbolUpdate</a></div><div class="brief "><p class="paragraph">Converts a <a href="../velkonost.binance.sdk.data.model.response/-socket-response/index.html">SocketResponse</a> object to a <a href="-symbol-update/index.html">SymbolUpdate</a> object. This extension function transforms WebSocket messages into the SDK's domain model.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
