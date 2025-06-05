@@ -122,7 +122,11 @@ internal class Client(
 
     internal suspend fun spotGetAllBalance(asset: String? = null) = spotRepository.getBalance(asset)
 
-    internal suspend fun spotGetTrades(asset: String) = spotRepository.getTrades(asset)
+    internal suspend fun spotGetTrades(
+        asset: String,
+        startTime: Long? = null,
+        endTime: Long? = null
+    ) = spotRepository.getTrades(asset, startTime, endTime)
 
     // FUTURES API OPERATIONS
 

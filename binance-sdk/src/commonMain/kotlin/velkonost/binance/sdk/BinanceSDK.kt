@@ -60,7 +60,11 @@ class BinanceSDK(
 
         suspend fun getAssetBalance(asset: String = "USDT") = safeCall { it.spotGetAllBalance(asset) }
 
-        suspend fun getAssetTradesHistory(asset: String) = safeCall { it.spotGetTrades(asset) }
+        suspend fun getAssetTradesHistory(
+            asset: String,
+            startTime: Long? = null,
+            endTime: Long? = null
+        ) = safeCall { it.spotGetTrades(asset, startTime, endTime) }
 
     }
 

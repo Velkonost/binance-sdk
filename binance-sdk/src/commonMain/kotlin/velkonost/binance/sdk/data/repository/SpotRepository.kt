@@ -37,10 +37,18 @@ internal class SpotRepository(
         return result.await()
     }
 
-    suspend fun getTrades(asset: String?): List<SpotTrade> {
+    suspend fun getTrades(
+        asset: String?,
+        startTime: Long?,
+        endTime: Long?
+    ): List<SpotTrade> {
         val result = CompletableDeferred<List<SpotTrade>>()
         coroutineScope.launchCatching(catch = result::handleError) {
-            dataSource.getTrades("${asset}USDT")
+            dataSource.getTrades(
+                symbol = "${asset}USDT",
+                startTime = startTime,
+                endTime = endTime
+            )
                 .onSuccess { data ->
                     result.complete(data.map(SpotTradesResponse::toSpotTrade))
                 }
