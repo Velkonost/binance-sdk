@@ -72,12 +72,15 @@ internal abstract class DataSource(
      */
     protected suspend inline fun HttpClient.binanceGet(
         path: String,
+        withTimeout: Boolean = true,
         parameters: List<Pair<String, String>> = emptyList(),
     ): HttpResponse {
-        val defaultParameters = listOf(
+        val defaultParameters = mutableListOf(
             "timestamp" to Clock.System.now().toEpochMilliseconds().toString(),
-            "timeout" to 20.toString()
         )
+        if (withTimeout) {
+            defaultParameters += "timeout" to 20.toString()
+        }
         val totalParameters = parameters + defaultParameters
         val signatureParameter = "signature" to generateSignature(totalParameters)
         return get(path, totalParameters + signatureParameter)

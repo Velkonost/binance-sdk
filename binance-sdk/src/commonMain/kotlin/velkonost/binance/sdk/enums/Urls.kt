@@ -13,6 +13,8 @@ internal enum class Urls(val value: String) {
      */
     Api("https://api.binance.com/api/"),
 
+    PApi("https://papi.binance.com/papi/"),
+
     /**
      * Base URL for the Binance margin trading API.
      * Used for margin trading operations.

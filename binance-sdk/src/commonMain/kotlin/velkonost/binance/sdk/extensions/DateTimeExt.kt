@@ -66,3 +66,20 @@ internal fun String.convertIntervalToMills(): Int {
         throw IllegalArgumentException("Unknown interval: $this")
     }
 }
+
+
+fun convertToMillis(dateTimeStr: String): Long {
+    val parts = dateTimeStr.split(" ", "-", ":")
+    require(parts.size == 6) { "Incorrect format. Expected: 'YYYY-MM-DD HH:MM:SS'" }
+
+    val year = parts[0].toInt()
+    val month = parts[1].toInt()
+    val day = parts[2].toInt()
+    val hour = parts[3].toInt()
+    val minute = parts[4].toInt()
+    val second = parts[5].toInt()
+
+    val dateTime = LocalDateTime(year, month, day, hour, minute, second)
+
+    return dateTime.toInstant(TimeZone.UTC).toEpochMilliseconds()
+}

@@ -10,7 +10,7 @@ import velkonost.binance.sdk.network.extensions.get
 
 internal class MainDataSource(apiKey: String, apiSecret: String) : DataSource(apiKey, apiSecret) {
 
-    override val httpClient: HttpClient by inject() {
+    override val httpClient: HttpClient by inject {
         parametersOf(Urls.Api.value, getHeaders())
     }
 

@@ -27,7 +27,7 @@ internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null
     val ktorClient = withPlatformEngine {
         Logging {
             logger = Logger.SIMPLE
-            level = LogLevel.NONE
+            level = LogLevel.ALL
         }
 
         requestRetry {

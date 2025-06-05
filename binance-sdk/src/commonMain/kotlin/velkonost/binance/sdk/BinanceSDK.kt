@@ -11,21 +11,14 @@ import velkonost.binance.sdk.network.di.BinanceSDKNetworkModule
  * The main entry point for the Binance SDK.
  * This object provides a simplified interface for interacting with the Binance API,
  * supporting both REST and WebSocket operations for spot and futures trading.
- *
- * Before using any functionality, the SDK must be initialized using [setup] with valid API credentials.
  */
-object BinanceSDK {
+class BinanceSDK(
+    apiKey: String, apiSecret: String
+) {
 
     private var client: Client? = null
 
-    /**
-     * Initializes the Binance SDK with API credentials.
-     * This method must be called before using any other SDK functionality.
-     *
-     * @param apiKey The API key provided by Binance for authentication
-     * @param apiSecret The secret key used for signing requests to the Binance API
-     */
-    fun setup(apiKey: String, apiSecret: String) {
+    init {
         initDI()
         client = Client(apiKey, apiSecret)
     }
@@ -42,19 +35,40 @@ object BinanceSDK {
     /**
      * General API operations that are not specific to any trading type.
      */
-    object General {
+    inner class General {
         /**
          * Pings the Binance API to check connectivity.
          * This is a simple health-check method that can be used to verify API access.
          */
         suspend fun ping() = safeCall { it.ping() }
+
+        suspend fun getDepositHistory(
+            asset: String? = null,
+            startTime: Long? = null,
+            endTime: Long? = null
+        ) = safeCall { it.getDepositHistory(asset, startTime, endTime) }
+
+        suspend fun getWithdrawHistory(
+            asset: String? = null,
+            startTime: Long? = null,
+            endTime: Long? = null
+        ) = safeCall { it.getWithdrawHistory(asset, startTime, endTime) }
+    }
+
+    inner class Spot {
+        suspend fun getBalance() = safeCall { it.spotGetAllBalance() }
+
+        suspend fun getAssetBalance(asset: String = "USDT") = safeCall { it.spotGetAllBalance(asset) }
+
+        suspend fun getAssetTradesHistory(asset: String) = safeCall { it.spotGetTrades(asset) }
+
     }
 
     /**
      * Futures trading specific operations.
      * These methods interact with the Binance Futures API endpoints.
      */
-    object Futures {
+    inner class Futures {
         /**
          * Pings the Binance Futures API to check connectivity.
          * Similar to [General.ping], but specifically for the futures endpoint.
@@ -102,7 +116,7 @@ object BinanceSDK {
      * WebSocket operations for real-time market data.
      * These methods provide access to live market data streams.
      */
-    object Socket {
+    inner class Socket {
         /**
          * Starts listening to the state of WebSocket connections.
          * This is useful for monitoring connection health and debugging.

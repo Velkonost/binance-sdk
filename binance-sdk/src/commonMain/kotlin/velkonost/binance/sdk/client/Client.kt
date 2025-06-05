@@ -3,10 +3,10 @@ package velkonost.binance.sdk.client
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import velkonost.binance.sdk.data.repository.*
 import velkonost.binance.sdk.data.repository.FuturesRepository
 import velkonost.binance.sdk.data.repository.MainRepository
 import velkonost.binance.sdk.data.repository.SocketRepository
-import velkonost.binance.sdk.data.repository.Symbol
 import velkonost.binance.sdk.enums.KlineInterval
 import velkonost.binance.sdk.model.*
 
@@ -22,8 +22,10 @@ import velkonost.binance.sdk.model.*
 internal class Client(
     apiKey: String, apiSecret: String,
     private val mainRepository: MainRepository = MainRepository(apiKey, apiSecret),
+    private val spotRepository: SpotRepository = SpotRepository(apiKey, apiSecret),
     private val futuresRepository: FuturesRepository = FuturesRepository(apiKey, apiSecret),
-    private val socketRepository: SocketRepository = SocketRepository(apiKey, apiSecret)
+    private val socketRepository: SocketRepository = SocketRepository(apiKey, apiSecret),
+    private val accountRepository: AccountRepository = AccountRepository(apiKey, apiSecret),
 ) {
 
     /**
@@ -103,6 +105,24 @@ internal class Client(
      * This is a simple health-check method that can be used to verify API access.
      */
     internal suspend fun ping() = mainRepository.ping()
+
+    internal suspend fun getDepositHistory(
+        asset: String? = null,
+        startTime: Long? = null,
+        endTime: Long? = null
+    ) = accountRepository.getDeposit(asset, startTime, endTime)
+
+    internal suspend fun getWithdrawHistory(
+        asset: String? = null,
+        startTime: Long? = null,
+        endTime: Long? = null
+    ) = accountRepository.getWithdraw(asset, startTime, endTime)
+
+    // SPOT API OPERATIONS
+
+    internal suspend fun spotGetAllBalance(asset: String? = null) = spotRepository.getBalance(asset)
+
+    internal suspend fun spotGetTrades(asset: String) = spotRepository.getTrades(asset)
 
     // FUTURES API OPERATIONS
 
