@@ -82,11 +82,22 @@ $dokka.location:velkonost.binance.sdk.exception/BinanceSDKException///PointingTo
 $dokka.location:velkonost.binance.sdk.exception/BinanceSDKException/BinanceSDKException/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.exception/-binance-s-d-k-exception/-binance-s-d-k-exception.html
 $dokka.location:velkonost.binance.sdk.exception/BinanceSDKException/message/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.exception/-binance-s-d-k-exception/message.html
 $dokka.location:velkonost.binance.sdk.exception/BinanceSDKNotInitializedException///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.exception/-binance-s-d-k-not-initialized-exception/index.html
+$dokka.location:velkonost.binance.sdk.extensions////PointingToDeclaration/binance-sdk/velkonost.binance.sdk.extensions/index.html
+$dokka.location:velkonost.binance.sdk.extensions//convertToMillis/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.extensions/convert-to-millis.html
 $dokka.location:velkonost.binance.sdk.model////PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/index.html
 $dokka.location:velkonost.binance.sdk.model//toKline/velkonost.binance.sdk.data.model.response.KlineResponse#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/to-kline.html
 $dokka.location:velkonost.binance.sdk.model//toKline/velkonost.binance.sdk.data.model.response.SocketKlineData#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/to-kline.html
 $dokka.location:velkonost.binance.sdk.model//toKlines/kotlin.collections.List[velkonost.binance.sdk.data.model.response.KlineResponse]#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/to-klines.html
 $dokka.location:velkonost.binance.sdk.model//toSymbolUpdate/velkonost.binance.sdk.data.model.response.SocketResponse#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/to-symbol-update.html
+$dokka.location:velkonost.binance.sdk.model/DepositData///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/index.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/DepositData/#kotlin.Float#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Long/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/-deposit-data.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/address/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/address.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/addressTag/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/address-tag.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/amount/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/amount.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/coin/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/coin.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/datetime/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/datetime.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/network/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/network.html
+$dokka.location:velkonost.binance.sdk.model/DepositData/txId/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-deposit-data/tx-id.html
 $dokka.location:velkonost.binance.sdk.model/FuturesBalance///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-futures-balance/index.html
 $dokka.location:velkonost.binance.sdk.model/FuturesBalance/FuturesBalance/#kotlin.Double#kotlin.Double#kotlin.Double/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-futures-balance/-futures-balance.html
 $dokka.location:velkonost.binance.sdk.model/FuturesBalance/all/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-futures-balance/all.html
@@ -109,36 +120,66 @@ $dokka.location:velkonost.binance.sdk.model/Kline/high/#/PointingToDeclaration/
 $dokka.location:velkonost.binance.sdk.model/Kline/low/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-kline/low.html
 $dokka.location:velkonost.binance.sdk.model/Kline/open/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-kline/open.html
 $dokka.location:velkonost.binance.sdk.model/Kline/volume/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-kline/volume.html
+$dokka.location:velkonost.binance.sdk.model/SpotBalance///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-balance/index.html
+$dokka.location:velkonost.binance.sdk.model/SpotBalance/SpotBalance/#kotlin.String#kotlin.Float#kotlin.Float/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-balance/-spot-balance.html
+$dokka.location:velkonost.binance.sdk.model/SpotBalance/asset/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-balance/asset.html
+$dokka.location:velkonost.binance.sdk.model/SpotBalance/free/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-balance/free.html
+$dokka.location:velkonost.binance.sdk.model/SpotBalance/locked/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-balance/locked.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/index.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/SpotTrade/#kotlin.Long#kotlin.String#kotlin.Float#kotlin.Float#kotlin.String#kotlin.String#kotlin.Long#kotlin.Boolean/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/-spot-trade.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/commission/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/commission.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/commissionAsset/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/commission-asset.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/id/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/id.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/isBuyer/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/is-buyer.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/price/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/price.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/qty/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/qty.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/symbol/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/symbol.html
+$dokka.location:velkonost.binance.sdk.model/SpotTrade/time/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-spot-trade/time.html
 $dokka.location:velkonost.binance.sdk.model/SymbolUpdate///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-symbol-update/index.html
 $dokka.location:velkonost.binance.sdk.model/SymbolUpdate/SymbolUpdate/#kotlin.String#kotlin.Long#velkonost.binance.sdk.model.Kline/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-symbol-update/-symbol-update.html
 $dokka.location:velkonost.binance.sdk.model/SymbolUpdate/kline/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-symbol-update/kline.html
 $dokka.location:velkonost.binance.sdk.model/SymbolUpdate/symbol/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-symbol-update/symbol.html
 $dokka.location:velkonost.binance.sdk.model/SymbolUpdate/time/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-symbol-update/time.html
-$dokka.location:velkonost.binance.sdk.network.di////PointingToDeclaration/binance-sdk/velkonost.binance.sdk.network.di/index.html
-$dokka.location:velkonost.binance.sdk.network.di//BinanceSDKNetworkModule/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.network.di/-binance-s-d-k-network-module.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/index.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/WithdrawData/#kotlin.String#kotlin.Float#kotlin.String#kotlin.String#kotlin.Long/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/-withdraw-data.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/address/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/address.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/amount/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/amount.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/coin/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/coin.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/datetime/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/datetime.html
+$dokka.location:velkonost.binance.sdk.model/WithdrawData/network/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk.model/-withdraw-data/network.html
 $dokka.location:velkonost.binance.sdk.network.socket////PointingToDeclaration/binance-sdk/velkonost.binance.sdk.network.socket/index.html
 $dokka.location:velkonost.binance.sdk.network.socket/NoData///PointingToDeclaration/binance-sdk/velkonost.binance.sdk.network.socket/-no-data/index.html
 $dokka.location:velkonost.binance.sdk////PointingToDeclaration/binance-sdk/velkonost.binance.sdk/index.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/index.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/Futures/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/-futures.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/getBalance/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/get-balance.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/getKlines/#kotlin.String#velkonost.binance.sdk.enums.KlineInterval#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/get-klines.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/getOpenPositions/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/get-open-positions.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/getSymbols/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/get-symbols.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Futures/ping/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-futures/ping.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.General///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-general/index.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.General/General/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-general/-general.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.General/getDepositHistory/#kotlin.String?#kotlin.Long?#kotlin.Long?/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-general/get-deposit-history.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.General/getWithdrawHistory/#kotlin.String?#kotlin.Long?#kotlin.Long?/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-general/get-withdraw-history.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.General/ping/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-general/ping.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/index.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/Socket/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/-socket.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/startListenAllSymbolsUpdates/#kotlin.Long#velkonost.binance.sdk.enums.KlineInterval#kotlin.Boolean#kotlin.Function1[velkonost.binance.sdk.model.SymbolUpdate,kotlin.Unit]?/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/start-listen-all-symbols-updates.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/startListenConnections/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/start-listen-connections.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/startListenUpdates/#kotlin.String#velkonost.binance.sdk.enums.KlineInterval/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/start-listen-updates.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/stopListenUpdates/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-socket/stop-listen-updates.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/index.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/Spot/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/-spot.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getAssetBalance/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-asset-balance.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getAssetTradesHistory/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-asset-trades-history.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getBalance/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-balance.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/index.html
-$dokka.location:velkonost.binance.sdk/BinanceSDK/setup/#kotlin.String#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/setup.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK/BinanceSDK/#kotlin.String#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-binance-s-d-k.html
 velkonost.binance.sdk
 velkonost.binance.sdk.data.model.response
 velkonost.binance.sdk.data.repository
 velkonost.binance.sdk.enums
 velkonost.binance.sdk.exception
+velkonost.binance.sdk.extensions
 velkonost.binance.sdk.model
-velkonost.binance.sdk.network.di
 velkonost.binance.sdk.network.socket
