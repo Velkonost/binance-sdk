@@ -171,7 +171,7 @@ $dokka.location:velkonost.binance.sdk/BinanceSDK.Socket/stopListenUpdates/#kotli
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Spot///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/index.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/Spot/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/-spot.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getAssetBalance/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-asset-balance.html
-$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getAssetTradesHistory/#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-asset-trades-history.html
+$dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getAssetTradesHistory/#kotlin.String#kotlin.Long?#kotlin.Long?/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-asset-trades-history.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK.Spot/getBalance/#/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-spot/get-balance.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK///PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/index.html
 $dokka.location:velkonost.binance.sdk/BinanceSDK/BinanceSDK/#kotlin.String#kotlin.String/PointingToDeclaration/binance-sdk/velkonost.binance.sdk/-binance-s-d-k/-binance-s-d-k.html
