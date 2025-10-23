@@ -1,5 +1,5 @@
 [versions]
-binance-sdk = "1.0.2"
+binance-sdk = "2.0.1"
 kotlin = "2.1.21"
 agp = "8.10.1"
 

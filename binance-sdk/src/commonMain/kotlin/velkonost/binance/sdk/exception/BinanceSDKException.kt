@@ -7,7 +7,10 @@ package velkonost.binance.sdk.exception
  *
  * @property message A detailed description of the error that occurred
  */
-open class BinanceSDKException(override val message: String) : Exception(message)
+open class BinanceSDKException(
+    override val message: String,
+    override val cause: Throwable? = null
+) : Exception(message, cause)
 
 /**
  * Exception thrown when attempting to use the Binance SDK before initialization.
@@ -19,4 +22,7 @@ open class BinanceSDKException(override val message: String) : Exception(message
  * 2. The SDK's setup method hasn't been called
  * 3. The initialization process failed
  */
-object BinanceSDKNotInitializedException: BinanceSDKException("binance client is not initialized")
+object BinanceSDKNotInitializedException : BinanceSDKException("binance client is not initialized")
+class ConfigurationException(message: String) : BinanceSDKException(message)
+class ValidationException(message: String) : BinanceSDKException(message)
+class NetworkException(message: String, cause: Throwable?) : BinanceSDKException(message, cause)
