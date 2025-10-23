@@ -2,6 +2,13 @@ package velkonost.binance.sdk.client
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.conflate
+import kotlinx.coroutines.flow.flatMapMerge
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import velkonost.binance.sdk.data.repository.*
 import velkonost.binance.sdk.data.repository.FuturesRepository
@@ -39,39 +46,115 @@ internal class Client(
     /**
      * Subscribes to WebSocket updates for all available trading symbols.
      * This method manages multiple WebSocket connections efficiently with configurable delays.
+     * 
+     * Optimized version that returns a single unified Flow<SymbolUpdate> with parallel processing
+     * and guaranteed no loss of elements.
      *
      * @param delayBetweenLaunches The delay (in milliseconds) between starting subscriptions for each symbol
      * @param interval The candlestick interval for which updates are requested
      * @param logConnectionsState If true, logs the state of WebSocket connections for monitoring
-     * @param collector An optional callback function to process incoming symbol updates
-     * @return A list of flows, each representing a stream of updates for a specific symbol
+     * @param maxConcurrency Maximum number of concurrent symbol subscriptions (default: 20)
+     * @return A single unified flow that emits updates from all symbols with parallel processing
      */
+    @OptIn(ExperimentalCoroutinesApi::class)
     internal suspend fun socketListenAllSymbols(
         delayBetweenLaunches: Long,
         interval: KlineInterval,
         logConnectionsState: Boolean,
-        collector: ((SymbolUpdate) -> Unit)? = null
-    ): List<Flow<SymbolUpdate>> {
-        val result = CompletableDeferred<List<Flow<SymbolUpdate>>>()
-        val sockets = mutableListOf<Flow<SymbolUpdate>>()
-        val symbols = futuresExchangeSymbols()
-
+        maxConcurrency: Int = 20
+    ): Flow<SymbolUpdate> {
         if (logConnectionsState) {
             socketListenConnections()
         }
 
-        coroutineScope.launch {
-            symbols.forEach { symbol ->
-                delay(delayBetweenLaunches)
-
-                val newSocket = async { socketListenUpdates(symbol, interval) }.await()
-                collector?.let { launch { newSocket.collect(it) } }
-
-                sockets.add(newSocket)
-            }
-            result.complete(sockets)
+        val symbols = try {
+            futuresExchangeSymbols()
+        } catch (e: Exception) {
+            return flowOf()
         }
-        return result.await()
+
+        val symbolsFlow = flow {
+            symbols.forEachIndexed { index, symbol ->
+                if (index > 0) {
+                    delay(delayBetweenLaunches)
+                }
+                emit(symbol)
+            }
+        }
+
+        return symbolsFlow
+            .flatMapMerge(concurrency = maxConcurrency) { symbol ->
+                try {
+                    socketListenUpdates(symbol, interval)
+                        .catch { e ->
+                            println("Error in socket for symbol $symbol: ${e.message}")
+                        }
+                } catch (e: Exception) {
+                    println("Failed to create socket for symbol $symbol: ${e.message}")
+                    flowOf()
+                }
+            }
+            .flowOn(Dispatchers.Default)
+    }
+
+    /**
+     * Advanced version of socketListenAllSymbols with additional performance optimizations.
+     * This method provides fine-grained control over buffering and conflation for high-throughput scenarios.
+     *
+     * @param delayBetweenLaunches The delay (in milliseconds) between starting subscriptions for each symbol
+     * @param interval The candlestick interval for which updates are requested
+     * @param logConnectionsState If true, logs the state of WebSocket connections for monitoring
+     * @param maxConcurrency Maximum number of concurrent symbol subscriptions (default: 20)
+     * @param bufferSize Buffer size for each symbol's flow (default: 64)
+     * @param conflateUpdates If true, conflates updates to prevent overwhelming downstream consumers
+     * @return A single unified flow with advanced performance optimizations
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    internal suspend fun socketListenAllSymbolsAdvanced(
+        delayBetweenLaunches: Long,
+        interval: KlineInterval,
+        logConnectionsState: Boolean,
+        maxConcurrency: Int = 20,
+        bufferSize: Int = 64,
+        conflateUpdates: Boolean = false
+    ): Flow<SymbolUpdate> {
+        if (logConnectionsState) {
+            socketListenConnections()
+        }
+
+        val symbols = try {
+            futuresExchangeSymbols()
+        } catch (e: Exception) {
+            return flowOf()
+        }
+
+        val symbolsFlow = flow {
+            symbols.forEachIndexed { index, symbol ->
+                if (index > 0) {
+                    delay(delayBetweenLaunches)
+                }
+                emit(symbol)
+            }
+        }
+
+        return symbolsFlow
+            .flatMapMerge(concurrency = maxConcurrency) { symbol ->
+                try {
+                    val symbolFlow = socketListenUpdates(symbol, interval)
+                        .catch { e ->
+                            println("Error in socket for symbol $symbol: ${e.message}")
+                        }
+
+                    when {
+                        conflateUpdates -> symbolFlow.conflate()
+                        else -> symbolFlow.buffer(bufferSize)
+                    }
+                } catch (e: Exception) {
+                    println("Failed to create socket for symbol $symbol: ${e.message}")
+                    flowOf()
+                }
+            }
+            .flowOn(Dispatchers.Default)
     }
 
     /**

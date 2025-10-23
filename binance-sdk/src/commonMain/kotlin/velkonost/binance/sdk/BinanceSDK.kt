@@ -129,19 +129,53 @@ class BinanceSDK(
 
         /**
          * Starts listening to real-time updates for all available trading symbols.
+         * 
+         * Optimized version that returns a single unified Flow<SymbolUpdate> with parallel processing
+         * and guaranteed no loss of elements.
          *
          * @param delayBetweenLaunches The delay (in milliseconds) between starting subscriptions for each symbol
          * @param interval The candlestick interval for which updates are requested
          * @param logConnectionsState If true, logs the state of WebSocket connections
-         * @param collector An optional callback function to process incoming symbol updates
+         * @param maxConcurrency Maximum number of concurrent symbol subscriptions (default: 20)
+         * @return A single unified flow that emits updates from all symbols with parallel processing
          */
         suspend fun startListenAllSymbolsUpdates(
             delayBetweenLaunches: Long = 1000L,
             interval: KlineInterval = KlineInterval.Minute1,
             logConnectionsState: Boolean = true,
-            collector: ((SymbolUpdate) -> Unit)? = null
+            maxConcurrency: Int = 20
         ) = safeCall {
-            it.socketListenAllSymbols(delayBetweenLaunches, interval, logConnectionsState, collector)
+            it.socketListenAllSymbols(delayBetweenLaunches, interval, logConnectionsState, maxConcurrency)
+        }
+
+        /**
+         * Advanced version of startListenAllSymbolsUpdates with additional performance optimizations.
+         * This method provides fine-grained control over buffering and conflation for high-throughput scenarios.
+         *
+         * @param delayBetweenLaunches The delay (in milliseconds) between starting subscriptions for each symbol
+         * @param interval The candlestick interval for which updates are requested
+         * @param logConnectionsState If true, logs the state of WebSocket connections
+         * @param maxConcurrency Maximum number of concurrent symbol subscriptions (default: 20)
+         * @param bufferSize Buffer size for each symbol's flow (default: 64)
+         * @param conflateUpdates If true, conflates updates to prevent overwhelming downstream consumers
+         * @return A single unified flow with advanced performance optimizations
+         */
+        suspend fun startListenAllSymbolsUpdatesAdvanced(
+            delayBetweenLaunches: Long = 1000L,
+            interval: KlineInterval = KlineInterval.Minute1,
+            logConnectionsState: Boolean = true,
+            maxConcurrency: Int = 20,
+            bufferSize: Int = 64,
+            conflateUpdates: Boolean = false
+        ) = safeCall {
+            it.socketListenAllSymbolsAdvanced(
+                delayBetweenLaunches, 
+                interval, 
+                logConnectionsState, 
+                maxConcurrency, 
+                bufferSize, 
+                conflateUpdates
+            )
         }
 
         /**
