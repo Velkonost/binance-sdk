@@ -51,7 +51,7 @@ class BinanceSDK private constructor() : KoinComponent {
     private fun initializeInternal(config: BinanceConfig) {
         loadKoinModules(
             listOf(
-                BinanceSDKNetworkModule,
+                BinanceSDKNetworkModule(config.logLevel),
                 BinanceSDKDataModule(config.apiKey, config.apiSecret),
                 BinanceSDKServiceModule
             )

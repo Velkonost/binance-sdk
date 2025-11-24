@@ -9,7 +9,6 @@ import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.utils.io.core.*
 import kotlinx.io.EOFException
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
@@ -23,11 +22,15 @@ import kotlin.time.Duration.Companion.seconds
 internal const val KTOR_REQUEST_TIMEOUT_MILLIS = 30_000L
 
 @OptIn(ExperimentalSerializationApi::class)
-internal fun ktorClient(url: String, headers: List<Pair<String, String>>? = null): HttpClient {
+internal fun ktorClient(
+    url: String,
+    headers: List<Pair<String, String>>? = null,
+    logLevel: LogLevel
+): HttpClient {
     val ktorClient = withPlatformEngine {
         Logging {
             logger = Logger.SIMPLE
-            level = LogLevel.ALL
+            level = logLevel
         }
 
         requestRetry {

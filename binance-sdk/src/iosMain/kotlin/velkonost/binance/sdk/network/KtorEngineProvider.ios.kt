@@ -1,7 +1,9 @@
 package velkonost.binance.sdk.network
 
-import io.ktor.client.engine.*
+import io.ktor.client.*
 import io.ktor.client.engine.darwin.*
 
-internal actual val platformEngine: HttpClientEngineFactory<*>
-    get() = Darwin
+internal actual fun withPlatformEngine(config: HttpClientConfig<*>.() -> Unit): HttpClient =
+    HttpClient(Darwin) {
+        config(this)
+    }

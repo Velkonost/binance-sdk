@@ -1,8 +1,9 @@
+
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import util.libs
-import com.vanniktech.maven.publish.SonatypeHost
 
 
 plugins {
@@ -63,7 +64,7 @@ kotlin {
             implementation(libs.cryptography.jvm)
         }
         jvmMain.dependencies {
-            implementation(libs.ktor.client.okhttp)
+            implementation(libs.ktor.client.cio)
             implementation(libs.cryptography.jvm)
         }
         jsMain.dependencies {

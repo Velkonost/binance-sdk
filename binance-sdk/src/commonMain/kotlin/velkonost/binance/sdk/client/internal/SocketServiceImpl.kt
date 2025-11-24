@@ -108,7 +108,6 @@ internal class SocketServiceImpl(
                     flowOf()
                 }
             }
-            .flowOn(Dispatchers.Default)
             .asResult()
     }
 
